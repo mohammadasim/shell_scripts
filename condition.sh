@@ -1,5 +1,6 @@
 #! /bin/bash
 
+# It is very important that after the [] brackets in the if clause we have space on both sides otherwise we will get and error.
 echo "hello"
 
 if [ 3 -eq 5 ]; then
