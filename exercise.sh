@@ -24,3 +24,25 @@ check_text_files_in_directory(){
 	echo "The total number of text files in the directory is $number_files"
 }
 
+
+rename_files(){
+	read -p "Please selec the type of file you want to rename. Enter t for text and j for jpg " selection
+	
+	while [[ "$selection" != "j" && "$selection" != "t" ]]; do
+		
+		read -p "Your selection is not correct, please try again " selection
+		
+	done
+	read -p "Please enter the prefix you wan to add to the names of the file " prefix
+	if [ "$selection" == "t" ]; then
+		for files in ./*.txt; do
+			echo $files
+			short_file_name=$(echo $files | cut -d'/' -f 2)
+			echo "The short file name is $short_file_name"
+			new_file_name=sudo mv $(echo $short_file_name) "$prefix""$short_file_name"
+			echo "the new file name is $new_file_name"
+		done
+	fi	
+}
+
+rename_files
